@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BusReportComponent } from './bus-report/bus-report.component';
+import { BusServicesService } from './bus-services.service';
 
 
 @NgModule({
@@ -14,7 +15,7 @@ import { BusReportComponent } from './bus-report/bus-report.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [BusServicesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
