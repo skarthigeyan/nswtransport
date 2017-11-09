@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { BusReportComponent } from './bus-report/bus-report.component';
@@ -15,7 +15,8 @@ import { DeviationFromTimeTable } from './shared/deviation-from-timetable.pipe';
     DeviationFromTimeTable
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [BusServicesService],
   bootstrap: [AppComponent]

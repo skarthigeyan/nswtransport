@@ -13,7 +13,7 @@ export class DeviationFromTimeTable implements PipeTransform{
             return "Early";
         }
         if(value > 0 && value <= 120){
-            return "Ontime";
+            return "OnTime";
         }
         else{
             return "Unknown";

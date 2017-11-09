@@ -34,17 +34,20 @@
             <div class="row">
                 <div>
                     <div>Notes:</div>
-                    <div>
-                        <div></div>
-                    </div>
+                        <div>{{org.notes}}</div>
                 </div>
             </div>
-            <!--<div class="row">
+            <div class="row">
                 <div class="form-group">
-                    <textarea class="form-control margin-bottom" rows="5" id="comment" placeholder="Enter notes here" ng-model="note"></textarea>
-                    <button type="button" class="btn btn-primary" ng-click='addNotes()'>Save Notes</button>
+                  <form #noteForm="ngForm" (ngSubmit)="saveNotes(noteForm)">
+                    <textarea class="form-control" rows="3" id="comment" name="note" placeholder="Enter notes here" (ngModel)="org.notes" [ngModelOptions]="{standalone: true}"></textarea>
+                    <button type="submit" class="btn btn-primary">Save Notes</button>
+                  </form>
+                  Model: {{busData | json}}
+                  <br>
+                  Angular: {{ noteForm.value | json}}
                 </div>
-            </div>-->
+            </div>
         </div>
     </div>
 </div>
