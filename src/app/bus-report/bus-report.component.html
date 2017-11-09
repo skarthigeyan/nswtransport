@@ -1,28 +1,28 @@
 <div class="container">
   Bus Reports
-</div>
+
 <div class="panel panel-default" *ngFor='let org of busServices; let i = index'>
   <div class="panel-heading">
     <h4 class="panel-title">
-        <h3 data-toggle="collapse" [attr.data-target]="'#' + i">
+        <h3 data-toggle="collapse" [attr.data-target]="'#' + i" class="left">
             {{org.organisation}}-{{org.date}}
             <span class="glyphicon glyphicon-collapse-up pull-right"></span>
         </h3>
     </h4>
   </div>
-      <div id="{{i}}" class="panel-collapse collapse in">
+      <div id="{{i}}" class="panel-collapse collapse out">
         <div class="panel-body">
             <div class="row">
                 <table class="table table-striped margin-bottom">
                     <thead>
-                        <tr>
+                        <tr class="center">
                             <th>Bus ID</th>
                             <th>Route Variant</th>
                             <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor='let service of org.busData'>
+                        <tr *ngFor='let service of org.busData' class="left">
                             <td>{{service.busId}}</td>
                             <td>
                                 <b>{{service.routeVariant | slice :0:3}} </b>{{service.routeVariant | slice :3}} </td>
@@ -39,17 +39,14 @@
             </div>
             <div class="row">
                 <div class="form-group">
-                  <form #noteForm="ngForm" (ngSubmit)="saveNotes(noteForm)">
-                    <textarea class="form-control" rows="3" id="comment" name="note" placeholder="Enter notes here" (ngModel)="org.notes" [ngModelOptions]="{standalone: true}"></textarea>
+                  <form #noteForm="ngForm">
+                    <textarea class="form-control" rows="3" id="comment" name="notes" placeholder="Enter notes here" [(ngModel)]="org.notes" [ngModelOptions]="{standalone: true}"></textarea>
                     <button type="submit" class="btn btn-primary">Save Notes</button>
                   </form>
-                  Model: {{busData | json}}
-                  <br>
-                  Angular: {{ noteForm.value | json}}
                 </div>
             </div>
         </div>
     </div>
 </div>
-
+</div>
 
