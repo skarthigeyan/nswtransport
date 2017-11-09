@@ -18,11 +18,6 @@ export class BusReportComponent implements OnInit {
 
   ngOnInit() {
     this.busServices = this._busService.getBusServicesData();
-  }
-
-  saveNotes(notes){
-    console.log(notes);
-    //this.busServices.find(x => x.organisation === org).notes.push(notes);
-  }
+  }  
 
 }
