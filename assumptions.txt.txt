@@ -1,0 +1,4 @@
+1. If deviation from time table is between 0 and 120 then it is OnTime.
+2. If deviation from time table is < 0 then Early.
+3. If deviation from time table is > 120 then bus is Late.
+4. Else bus timing is Unknown.
