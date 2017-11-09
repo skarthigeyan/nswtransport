@@ -1,3 +1,52 @@
-<p>
-  bus-report works!
-</p>
+<div class="container">
+  Bus Reports
+</div>
+<div class="panel panel-default" *ngFor='let org of busServices; let i = index'>
+  <div class="panel-heading">
+    <h4 class="panel-title">
+        <h3 data-toggle="collapse" [attr.data-target]="'#' + i">
+            {{org.organisation}}-{{org.date}}
+            <span class="glyphicon glyphicon-collapse-up pull-right"></span>
+        </h3>
+    </h4>
+  </div>
+      <div id="{{i}}" class="panel-collapse collapse in">
+        <div class="panel-body">
+            <div class="row">
+                <table class="table table-striped margin-bottom">
+                    <thead>
+                        <tr>
+                            <th>Bus ID</th>
+                            <th>Route Variant</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor='let service of org.busData'>
+                            <td>{{service.busId}}</td>
+                            <td>
+                                <b>{{service.routeVariant | slice :0:3}} </b>{{service.routeVariant | slice :3}} </td>
+                            <td [ngClass]="service.deviationFromTimetable | deviationFromTimeTable">{{service.deviationFromTimetable | deviationFromTimeTable}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="row">
+                <div>
+                    <div>Notes:</div>
+                    <div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="row">
+                <div class="form-group">
+                    <textarea class="form-control margin-bottom" rows="5" id="comment" placeholder="Enter notes here" ng-model="note"></textarea>
+                    <button type="button" class="btn btn-primary" ng-click='addNotes()'>Save Notes</button>
+                </div>
+            </div>-->
+        </div>
+    </div>
+</div>
+
+
